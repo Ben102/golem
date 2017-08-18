@@ -62,6 +62,11 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'golem.resources': {
+            'level': 'INFO',
+            'propagate': True,
+            'handlers': ['console', 'file', ],
+        },
         'hyperg': {
             'level': 'INFO',
             'propagate': True,
