@@ -16,6 +16,7 @@ class App(object):
         self.widget = None  # inherit from TaskWidget
         self.controller = None  # inherit from Customizer
         self.task_type_info = None  # inherit from TaskTypeInfo
+        self.benchmark = None  # inherit from Benchmark
 
 
 class AppsManager(object):

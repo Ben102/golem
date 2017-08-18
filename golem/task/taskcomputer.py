@@ -245,14 +245,17 @@ class TaskComputer(object):
             return False
         return True
 
-    def run_benchmark(self, benchmark, task_builder, datadir, node_name, success_callback, error_callback):
+    def run_benchmark(self, benchmark, task_builder, datadir, node_name,
+                      success_callback, error_callback):
         task_state = TaskDesc()
         task_state.status = TaskStatus.notStarted
         task_state.definition = benchmark.task_definition
         self._validate_task_state(task_state)
-        builder = task_builder(node_name, task_state.definition, datadir, self.dir_manager)
+        builder = task_builder(node_name, task_state.definition, datadir,
+                               self.dir_manager)
         t = Task.build_task(builder)
-        br = BenchmarkRunner(t, datadir, success_callback, error_callback, benchmark)
+        br = BenchmarkRunner(t, datadir, success_callback, error_callback,
+                             benchmark)
         br.run()
 
     def run_lux_benchmark(self, success=None, error=None):
