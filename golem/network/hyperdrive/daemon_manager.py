@@ -52,10 +52,12 @@ class HyperdriveDaemonManager(object):
 
     def ports(self, addresses=None):
         if addresses is None:
-            addresses = self.addresses() or dict()
+            addrs = self.addresses() or dict()
+        else:
+            addrs = addresses
 
         return set(value['port'] for key, value
-                   in addresses.items()
+                   in addrs.items()
                    if value and value.get('port'))
 
     def start(self):
